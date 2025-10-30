@@ -1,28 +1,57 @@
-#Data_Pilihan_Rumah
+# Projek PickAHome: Smart House Recommendation System
+# Deskripsi: Program yang menyediakan wadah untuk membeli dan menjual rumah
+
+# Variabel
+# rumah_list: list
+# lanjut: string
+# Tipe_User: string
+
+# Data pilihan rumah
 rumah_list = [
     ["Rumah A", "Kota", "ramai", 3, 800_000_000],
     ["Rumah B", "Pinggiran", "sepi", 4, 600_000_000],
     ["Rumah C", "Kota", "sepi", 2, 700_000_000]
 ]
 
+# Looping agar program tetap berjalan
 lanjut = "iya"
-while lanjut != "gak":
+while lanjut != "tidak":
     print("===================================")
     print("PickaHome: Sistem Rekomendasi Rumah")
     print("===================================")
-    Tipe_User = input("Kamu itu seller atau buyer?:  ")
+    Tipe_User = input("Ingin memilih sebagai buyer atau seller? ")
+    print()
+    
     if Tipe_User == "seller":
-        Rumah_add = input("Silakah masukan rumah yang mau di jual dengan Format: [nama, lokasi, suasana, kamar, harga]: ")
+        print("=== Silahkan input data rumah yang ingin dijual ===")
+        # Seller mengisi data rumah yang akan dijual dan diisi dalam list
+        Rumah_add = []
+        Nama_add = input("Masukkan nama rumah yang dijual: ").title()
+        Rumah_add.append(Nama_add)
+
+        lokasi = input("Lokasi rumah di Kota atau Pinggiran? ").capitalize()
+        Rumah_add.append(lokasi)
+
+        suasana_add = input("Suasana pada sekitar rumah bagaimana? (sepi/ramai): ").lower()
+        Rumah_add.append(suasana_add)
+
+        Jumlah_kamar_add = int(input("Masukkan jumlah kamar pada rumah: "))
+        Rumah_add.append(Jumlah_kamar_add)
+
+        Harga_add = int(input("Range harga yang ingin diberikan: "))
+        Rumah_add.append(Harga_add)
+        
         rumah_list.append(Rumah_add)
-        print(rumah_list)
+        print()
 
     if Tipe_User == "buyer":
-        #User_Input_Prefensi_Mereka
-        print("=== Silahkan masukan prefensi rumah anda ===")
+        # Buyer memilih prefensi rumah
+        print("=== Silahkan input prefensi rumah anda ===")
         Jumlah_kamar = int(input("Berapa jumlah kamar yang dibutuhkan? "))
         suasana = input("Suka lingkungan sepi atau ramai? ").lower()
-        lokasi = input("Mau di area mana? (Kota/Pinggiran) ").capitalize()
-        Harga = int(input("hargany sekitar berapa? = "))
+        lokasi = input("Mau di area mana? (Kota/Pinggiran): ").capitalize()
+        Harga = int(input("Range harga yang diinginkan? "))
+        print()
 
         rekomendasi = []
 
@@ -39,11 +68,11 @@ while lanjut != "gak":
 
         else:
             print("Maaf, belum ada rumah yang cocok dengan preferensimu.")
-        
-        lanjut = input("mau lanjutin sistemnya atau gak (iya atau gak)").lower()
+        print()
+
+        lanjut = input("Apakah sistem ingin dilanjutkan? (iya/tidak)").lower()
+        print()
         
 print("=========================================")
 print("Terima kasih telah menggunakan sistem ini")
 print("=========================================")
-
-
