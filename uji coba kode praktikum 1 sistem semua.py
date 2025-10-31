@@ -7,7 +7,7 @@
 # Tipe_User: string
 
 # Data pilihan rumah
-rumah_list = [
+list_rumah = [
     ["Rumah A", "Kota", "ramai", 3, 800_000_000],
     ["Rumah B", "Pinggiran", "sepi", 4, 600_000_000],
     ["Rumah C", "Kota", "sepi", 2, 700_000_000]
@@ -41,7 +41,7 @@ while lanjut != "tidak":
         Harga_add = int(input("Range harga yang ingin diberikan: "))
         Rumah_add.append(Harga_add)
         
-        rumah_list.append(Rumah_add)
+        list_rumah.append(Rumah_add)
         print()
 
     if Tipe_User == "buyer":
@@ -56,7 +56,7 @@ while lanjut != "tidak":
         rekomendasi = []
 
         # Loop semua rumah dan mendefinisikan tiap komponen dalam list
-        for rumah in rumah_list:
+        for rumah in list_rumah:
             if rumah[2] == suasana and rumah[1] == lokasi and rumah[3] >= Jumlah_kamar and rumah[4]<=Harga: 
                 rekomendasi.append(rumah)
 
@@ -76,3 +76,4 @@ while lanjut != "tidak":
 print("=========================================")
 print("Terima kasih telah menggunakan sistem ini")
 print("=========================================")
+
