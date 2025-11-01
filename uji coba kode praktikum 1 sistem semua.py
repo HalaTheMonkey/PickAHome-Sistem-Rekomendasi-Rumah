@@ -32,14 +32,14 @@ while lanjut != "tidak":
         lokasi = input("Lokasi rumah di Kota atau Pinggiran? ").capitalize()
         Rumah_add.append(lokasi)
 
-        suasana_add = input("Suasana pada sekitar rumah bagaimana? (sepi/ramai): ").lower()
-        Rumah_add.append(suasana_add)
+        suasana = input("Suasana pada sekitar rumah bagaimana? (sepi/ramai): ").lower()
+        Rumah_add.append(suasana)
 
-        Jumlah_kamar_add = int(input("Masukkan jumlah kamar pada rumah: "))
-        Rumah_add.append(Jumlah_kamar_add)
+        jumlah_kamar = int(input("Masukkan jumlah kamar pada rumah: "))
+        Rumah_add.append(jumlah_kamar)
 
-        Harga_add = int(input("Range harga yang ingin diberikan: "))
-        Rumah_add.append(Harga_add)
+        harga = int(input("Range harga yang ingin diberikan: "))
+        Rumah_add.append(harga)
         
         list_rumah.append(Rumah_add)
         print()
@@ -47,17 +47,17 @@ while lanjut != "tidak":
     if Tipe_User == "buyer":
         # Buyer memilih prefensi rumah
         print("=== Silahkan input prefensi rumah anda ===")
-        Jumlah_kamar = int(input("Berapa jumlah kamar yang dibutuhkan? "))
-        suasana = input("Suka lingkungan sepi atau ramai? ").lower()
         lokasi = input("Mau di area mana? (Kota/Pinggiran): ").capitalize()
-        Harga = int(input("Range harga yang diinginkan? "))
+        suasana = input("Suka lingkungan sepi atau ramai? ").lower()
+        jumlah_kamar = int(input("Berapa jumlah kamar yang dibutuhkan? "))
+        harga = int(input("Range harga yang diinginkan? "))
         print()
 
         rekomendasi = []
 
         # Loop semua rumah dan mendefinisikan tiap komponen dalam list
         for rumah in list_rumah:
-            if rumah[2] == suasana and rumah[1] == lokasi and rumah[3] >= Jumlah_kamar and rumah[4]<=Harga: 
+            if rumah[2] == suasana and rumah[1] == lokasi and rumah[3] >= jumlah_kamar and rumah[4] <= harga: 
                 rekomendasi.append(rumah)
 
         # Menampilkan hasilnya
@@ -70,10 +70,9 @@ while lanjut != "tidak":
             print("Maaf, belum ada rumah yang cocok dengan preferensimu.")
         print()
 
-        lanjut = input("Apakah sistem ingin dilanjutkan? (iya/tidak)").lower()
+        lanjut = input("Apakah sistem ingin dilanjutkan? (iya/tidak) ").lower()
         print()
         
 print("=========================================")
 print("Terima kasih telah menggunakan sistem ini")
 print("=========================================")
-
